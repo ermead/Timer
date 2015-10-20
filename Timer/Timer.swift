@@ -17,6 +17,12 @@ class Timer: NSObject {
     private(set) var totalSeconds = NSTimeInterval(0)
     private var timer: NSTimer?
     var isOn: Bool
+    
+    init(seconds:NSTimeInterval, totalSeconds:NSTimeInterval, isOn:Bool){
+        self.seconds = seconds
+        self.totalSeconds = totalSeconds
+        self.isOn = isOn
+    }
 }
 
 func setTime(second: NSTimeInterval, totalSeconds: NSTimeInterval){
@@ -36,5 +42,5 @@ func secondTick(){
 }
 
 func timerString() -> String{
-    
+  return ""
 }
