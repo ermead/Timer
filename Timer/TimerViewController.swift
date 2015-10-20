@@ -46,8 +46,12 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 switchToTimerView()
             }
         }
-
-        // Do any additional setup after loading the view.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateTimerBasedViews", name: Timer.TimerSecondTickNotification, object: timer)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "timerComplete", name: Timer.TimerCompleteNotification, object: timer)
+        
+        minutePickerView.selectRow(1, inComponent: 0, animated: false)
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -69,13 +73,17 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return String(row)
     }
     
-        func switchToTimerView(){
+    func switchToTimerView(){
             
-        }
+    }
         
-        func updateTimerBasedViews(){
+    func updateTimerBasedViews(){
             
-        }
+    }
+    
+    func timerComplete(){
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
