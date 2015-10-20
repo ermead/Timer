@@ -87,10 +87,10 @@ func timerString() -> String{
     
     var hoursString = ""
     if hours > 0 {
-        hoursString = "\(hours)"
+        hoursString = "\(hours):"
     }
     
-    return ("\(hoursString):\(minutesString):\(secondsString)")
+    return ("\(hoursString)\(minutesString):\(secondsString)")
     
 
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var pauseButtonLabel: UIButton!
@@ -37,7 +38,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         timer.setTime(totalSecondsSetOnTimer, totalSeconds: totalSecondsSetOnTimer)
         
         timer.startTimer()
-        
+       
         
         if startButtonLabel.titleLabel?.text == "Cancel"{
             print("it is Cancel")
@@ -48,6 +49,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             minutePickerView.alpha = 1.0
             hourPickerView.alpha = 1.0
             startButtonLabel.setTitle("Start", forState: .Normal)
+            progressBar.hidden = true
         } else {
             startButtonLabel.setTitle("Cancel", forState: .Normal)
             
@@ -77,7 +79,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         guard let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else { return }
         
         timer.stopTimer()
-        
+        progressBar.hidden = true
         
         
         for notification in scheduledNotifications {
@@ -138,6 +140,17 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         hourPickerView.alpha = 0.0
         timerLabel.text = timer.timerString()
         print(timer.timerString())
+        progressBarUpdate()
+    }
+    
+    func progressBarUpdate(){
+        
+        progressBar.hidden = false
+        let secondsElapsed = timer.totalSeconds - timer.seconds
+        let progress = Float(secondsElapsed) / Float(timer.totalSeconds)
+        progressBar.setProgress(progress, animated: true)
+        
+       
     }
     
     func timerComplete(){
