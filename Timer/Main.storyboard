@@ -119,6 +119,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Timer" id="OO4-qG-0K5"/>
+                    <connections>
+                        <outlet property="hourPickerView" destination="gV0-5q-Mn1" id="1Wo-0b-5yb"/>
+                        <outlet property="minutePickerView" destination="QJ4-Nx-ikW" id="t6T-hL-DWY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UT5-Lx-6na" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
