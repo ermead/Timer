@@ -8,12 +8,26 @@
 
 import UIKit
 
-class TimerViewController: UIViewController {
+class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBAction func pauseButton(sender: UIButton) {
+    }
+    
+    @IBAction func startButton(sender: UIButton) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
     }
 
     override func didReceiveMemoryWarning() {
