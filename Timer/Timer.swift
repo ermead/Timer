@@ -18,15 +18,10 @@ class Timer: NSObject {
     private var timer: NSTimer?
     var isOn: Bool
     
-    init(seconds:NSTimeInterval, totalSeconds:NSTimeInterval, isOn:Bool){
+    func setTime(seconds:NSTimeInterval, totalSeconds:NSTimeInterval){
         self.seconds = seconds
         self.totalSeconds = totalSeconds
-        self.isOn = isOn
     }
-}
-
-func setTime(second: NSTimeInterval, totalSeconds: NSTimeInterval){
-    
 }
 
 func startTimer(){
