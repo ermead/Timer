@@ -75,8 +75,23 @@ func timerString() -> String{
     let minutes = (totalSeconds/60 - (hours*60))
     let seconds = (totalSeconds - (minutes*60) - (hours*3600))
     
+    var secondsString = ""
+    if seconds < 10 {
+        secondsString = "0\(seconds)"
+    } else { secondsString = "\(seconds)"}
     
-    return "\(hours): \(minutes): \(seconds)"
+    var minutesString = ""
+    if minutes < 10 {
+        minutesString = "0\(minutes)"
+    } else { minutesString = "\(minutes)"}
+    
+    var hoursString = ""
+    if hours > 0 {
+        hoursString = "\(hours)"
+    }
+    
+    return ("\(hoursString):\(minutesString):\(secondsString)")
+    
 
 }
 
