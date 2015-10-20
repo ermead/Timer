@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f5t-lJ-0RB">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Timer View Controller-->
+        <!--Timer-->
         <scene sceneID="4to-Ve-ByJ">
             <objects>
                 <viewController id="bSZ-fP-98Z" customClass="TimerViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,39 +18,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbb-i9-d5b">
-                                <rect key="frame" x="167" y="343" width="42" height="30"/>
-                                <state key="normal" title="Pause"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8B-vy-Ypf">
-                                <rect key="frame" x="313" y="343" width="34" height="30"/>
-                                <state key="normal" title="Start"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cz1-xj-sGD">
-                                <rect key="frame" x="215" y="174" width="46" height="21"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="Fyz-T2-ijw">
+                                <rect key="frame" x="150" y="321" width="300" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbb-i9-d5b">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="8XT-Ii-qcO"/>
+                                            <constraint firstAttribute="width" secondItem="Lbb-i9-d5b" secondAttribute="height" multiplier="1:1" id="9cB-96-csh"/>
+                                            <constraint firstAttribute="height" constant="100" id="oZ8-y9-Y65"/>
+                                        </constraints>
+                                        <state key="normal" title="Pause"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8B-vy-Ypf">
+                                        <rect key="frame" x="200" y="0.0" width="100" height="100"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="kqX-LH-w8J"/>
+                                            <constraint firstAttribute="width" constant="100" id="opD-1m-ErN"/>
+                                            <constraint firstAttribute="width" secondItem="M8B-vy-Ypf" secondAttribute="height" multiplier="1:1" id="uMK-tj-lTk"/>
+                                        </constraints>
+                                        <state key="normal" title="Start"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cz1-xj-sGD">
+                                <rect key="frame" x="246" y="173" width="46" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="3g9-G1-yet"/>
+                                    <constraint firstAttribute="height" constant="21" id="C31-2k-Yum"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-5q-Mn1">
-                                <rect key="frame" x="0.0" y="77" width="211" height="216"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJ4-Nx-ikW">
+                                <rect key="frame" x="300" y="77" width="211" height="216"/>
                             </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJ4-Nx-ikW">
-                                <rect key="frame" x="307" y="77" width="211" height="216"/>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PY0-o6-aLs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PY0-o6-aLs">
                                 <rect key="frame" x="519" y="174" width="61" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="qMU-m2-95N"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NaO-wz-8kr">
-                                <rect key="frame" x="187" y="439" width="150" height="2"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-5q-Mn1">
+                                <rect key="frame" x="20" y="77" width="211" height="216"/>
+                            </pickerView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NaO-wz-8kr">
+                                <rect key="frame" x="225" y="486" width="150" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Jtq-AY-Rj1"/>
+                                </constraints>
                             </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PY0-o6-aLs" firstAttribute="centerY" secondItem="QJ4-Nx-ikW" secondAttribute="centerY" id="6Si-VW-hlO"/>
+                            <constraint firstItem="gV0-5q-Mn1" firstAttribute="top" secondItem="QJ4-Nx-ikW" secondAttribute="top" id="H5d-1l-dc9"/>
+                            <constraint firstItem="gV0-5q-Mn1" firstAttribute="top" secondItem="J5c-st-Taf" secondAttribute="bottom" constant="13" id="J6U-6X-46c"/>
+                            <constraint firstItem="NaO-wz-8kr" firstAttribute="top" secondItem="Fyz-T2-ijw" secondAttribute="bottom" constant="65" id="anL-eg-Zn0"/>
+                            <constraint firstItem="PY0-o6-aLs" firstAttribute="trailing" secondItem="6GV-UH-ZdL" secondAttribute="trailingMargin" id="bcm-TA-3SF"/>
+                            <constraint firstItem="QJ4-Nx-ikW" firstAttribute="leading" secondItem="Cz1-xj-sGD" secondAttribute="trailing" constant="8" symbolic="YES" id="cpU-Z3-pAU"/>
+                            <constraint firstItem="PY0-o6-aLs" firstAttribute="leading" secondItem="QJ4-Nx-ikW" secondAttribute="trailing" constant="8" symbolic="YES" id="fXJ-5z-KgZ"/>
+                            <constraint firstItem="Fyz-T2-ijw" firstAttribute="top" secondItem="gV0-5q-Mn1" secondAttribute="bottom" constant="28" id="kkl-aA-U2k"/>
+                            <constraint firstItem="Fyz-T2-ijw" firstAttribute="centerX" secondItem="NaO-wz-8kr" secondAttribute="centerX" id="l0U-uO-2xg"/>
+                            <constraint firstItem="QJ4-Nx-ikW" firstAttribute="width" secondItem="gV0-5q-Mn1" secondAttribute="width" id="rde-FF-kgE"/>
+                            <constraint firstItem="Fyz-T2-ijw" firstAttribute="centerX" secondItem="6GV-UH-ZdL" secondAttribute="centerX" id="sNQ-px-FHs"/>
+                            <constraint firstItem="gV0-5q-Mn1" firstAttribute="leading" secondItem="6GV-UH-ZdL" secondAttribute="leadingMargin" id="tPa-iV-Nhv"/>
+                            <constraint firstItem="Cz1-xj-sGD" firstAttribute="leading" secondItem="gV0-5q-Mn1" secondAttribute="trailing" constant="15" id="taR-qu-y6h"/>
+                            <constraint firstItem="PY0-o6-aLs" firstAttribute="top" secondItem="J5c-st-Taf" secondAttribute="bottom" constant="110" id="zbo-xZ-UIm"/>
+                            <constraint firstItem="Cz1-xj-sGD" firstAttribute="top" secondItem="J5c-st-Taf" secondAttribute="bottom" constant="109" id="zdf-Jw-uCq"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hrJ-NZ-KAT"/>
+                    <navigationItem key="navigationItem" title="Timer" id="OO4-qG-0K5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UT5-Lx-6na" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
