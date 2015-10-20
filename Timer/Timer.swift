@@ -71,10 +71,12 @@ func secondTick(){
 func timerString() -> String{
   
     let totalSeconds = Int(self.seconds)
-    let minutes = totalSeconds/60
-    let seconds = (totalSeconds - (minutes*60))
+    let hours = totalSeconds/3600
+    let minutes = (totalSeconds/60 - (hours*60))
+    let seconds = (totalSeconds - (minutes*60) - (hours*3600))
     
-    return "\(minutes): \(seconds)"
+    
+    return "\(hours): \(minutes): \(seconds)"
 
 }
 
