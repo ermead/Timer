@@ -164,7 +164,9 @@
         <scene sceneID="kTm-vt-IMV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="74i-oH-ybD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Timer" id="i01-1d-ZLk"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="timer" id="i01-1d-ZLk">
+                        <inset key="imageInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RcT-yP-HfG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -201,7 +203,9 @@
         <scene sceneID="Nqo-I7-fGl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gSo-Nb-XfB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Alarm" id="TnB-NZ-j8G"/>
+                    <tabBarItem key="tabBarItem" title="Alarm" image="alarm" id="TnB-NZ-j8G">
+                        <inset key="imageInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YkB-k0-Vn4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -217,4 +221,8 @@
             <point key="canvasLocation" x="3902" y="-777"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alarm" width="50" height="50"/>
+        <image name="timer" width="50" height="50"/>
+    </resources>
 </document>
