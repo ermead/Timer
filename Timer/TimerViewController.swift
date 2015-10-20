@@ -159,7 +159,15 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     let okButton = UIAlertAction(title: "Ok!", style: .Default, handler: nil)
     timerCompleteAlert.addAction(okButton)
     presentViewController(timerCompleteAlert, animated: true, completion: nil)
-        
+     
+        timer.stopTimer()
+        timerLabel.alpha = 0.0
+        hoursLabel.alpha = 1.0
+        minutesLabel.alpha = 1.0
+        minutePickerView.alpha = 1.0
+        hourPickerView.alpha = 1.0
+        startButtonLabel.setTitle("Start", forState: .Normal)
+        progressBar.hidden = true
     }
 
   
