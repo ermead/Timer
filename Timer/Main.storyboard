@@ -98,11 +98,20 @@
                                     <constraint firstAttribute="width" constant="150" id="Jtq-AY-Rj1"/>
                                 </constraints>
                             </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFP-6G-0pA">
+                                <rect key="frame" x="0.0" y="77" width="600" height="216"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="85"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PY0-o6-aLs" firstAttribute="centerY" secondItem="QJ4-Nx-ikW" secondAttribute="centerY" id="6Si-VW-hlO"/>
+                            <constraint firstItem="mFP-6G-0pA" firstAttribute="centerX" secondItem="Fyz-T2-ijw" secondAttribute="centerX" id="7pt-7l-Np8"/>
                             <constraint firstItem="gV0-5q-Mn1" firstAttribute="top" secondItem="QJ4-Nx-ikW" secondAttribute="top" id="H5d-1l-dc9"/>
+                            <constraint firstItem="mFP-6G-0pA" firstAttribute="bottom" secondItem="QJ4-Nx-ikW" secondAttribute="bottom" id="IeK-Jv-QEH"/>
+                            <constraint firstItem="mFP-6G-0pA" firstAttribute="leading" secondItem="6GV-UH-ZdL" secondAttribute="leading" id="IvR-nL-p0a"/>
                             <constraint firstItem="gV0-5q-Mn1" firstAttribute="top" secondItem="J5c-st-Taf" secondAttribute="bottom" constant="13" id="J6U-6X-46c"/>
                             <constraint firstItem="NaO-wz-8kr" firstAttribute="top" secondItem="Fyz-T2-ijw" secondAttribute="bottom" constant="65" id="anL-eg-Zn0"/>
                             <constraint firstItem="PY0-o6-aLs" firstAttribute="trailing" secondItem="6GV-UH-ZdL" secondAttribute="trailingMargin" id="bcm-TA-3SF"/>
@@ -110,6 +119,7 @@
                             <constraint firstItem="PY0-o6-aLs" firstAttribute="leading" secondItem="QJ4-Nx-ikW" secondAttribute="trailing" constant="8" symbolic="YES" id="fXJ-5z-KgZ"/>
                             <constraint firstItem="Fyz-T2-ijw" firstAttribute="top" secondItem="gV0-5q-Mn1" secondAttribute="bottom" constant="28" id="kkl-aA-U2k"/>
                             <constraint firstItem="Fyz-T2-ijw" firstAttribute="centerX" secondItem="NaO-wz-8kr" secondAttribute="centerX" id="l0U-uO-2xg"/>
+                            <constraint firstItem="mFP-6G-0pA" firstAttribute="top" secondItem="QJ4-Nx-ikW" secondAttribute="top" id="mWT-c1-myD"/>
                             <constraint firstItem="QJ4-Nx-ikW" firstAttribute="width" secondItem="gV0-5q-Mn1" secondAttribute="width" id="rde-FF-kgE"/>
                             <constraint firstItem="Fyz-T2-ijw" firstAttribute="centerX" secondItem="6GV-UH-ZdL" secondAttribute="centerX" id="sNQ-px-FHs"/>
                             <constraint firstItem="gV0-5q-Mn1" firstAttribute="leading" secondItem="6GV-UH-ZdL" secondAttribute="leadingMargin" id="tPa-iV-Nhv"/>
@@ -121,12 +131,16 @@
                     <navigationItem key="navigationItem" title="Timer" id="OO4-qG-0K5"/>
                     <connections>
                         <outlet property="hourPickerView" destination="gV0-5q-Mn1" id="1Wo-0b-5yb"/>
+                        <outlet property="hoursLabel" destination="Cz1-xj-sGD" id="741-H7-Xdu"/>
                         <outlet property="minutePickerView" destination="QJ4-Nx-ikW" id="t6T-hL-DWY"/>
+                        <outlet property="minutesLabel" destination="PY0-o6-aLs" id="mzG-CW-heC"/>
+                        <outlet property="startButtonLabel" destination="M8B-vy-Ypf" id="eEP-ZX-RhO"/>
+                        <outlet property="timerLabel" destination="mFP-6G-0pA" id="hNk-Rr-NtT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UT5-Lx-6na" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3892" y="-96"/>
+            <point key="canvasLocation" x="3884" y="-86"/>
         </scene>
         <!--Alarm View-->
         <scene sceneID="t1Q-CA-4dx">

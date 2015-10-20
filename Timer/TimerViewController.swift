@@ -9,14 +9,26 @@
 import UIKit
 
 class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
+    @IBOutlet weak var hoursLabel: UILabel!
+    @IBOutlet weak var minutesLabel: UILabel!
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    
     @IBAction func pauseButton(sender: UIButton) {
+    
+        timer.stopTimer()
+        startButtonLabel.setTitle("Start", forState: .Normal)
+    
     }
     
     @IBAction func startButton(sender: UIButton) {
         
         timer.startTimer()
+        startButtonLabel.setTitle("Cancel", forState: .Normal)
     }
+    
+    @IBOutlet weak var startButtonLabel: UIButton!
     
     @IBOutlet weak var hourPickerView: UIPickerView!
     
@@ -37,6 +49,8 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         guard let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else { return }
         
         timer.stopTimer()
+        
+        
         
         for notification in scheduledNotifications {
             if notification.category == Timer.TimerAlert {
@@ -89,7 +103,12 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
         
     func updateTimerBasedViews(){
-    
+        hoursLabel.alpha = 0.0
+        minutesLabel.alpha = 0.0
+        timerLabel.alpha = 1.0
+        minutePickerView.alpha = 0.0
+        hourPickerView.alpha = 0.0
+        timerLabel.text = timer.timerString()
         print(timer.timerString())
     }
     
