@@ -134,6 +134,7 @@
                         <outlet property="hoursLabel" destination="Cz1-xj-sGD" id="741-H7-Xdu"/>
                         <outlet property="minutePickerView" destination="QJ4-Nx-ikW" id="t6T-hL-DWY"/>
                         <outlet property="minutesLabel" destination="PY0-o6-aLs" id="mzG-CW-heC"/>
+                        <outlet property="pauseButtonLabel" destination="Lbb-i9-d5b" id="QeB-l9-uGW"/>
                         <outlet property="startButtonLabel" destination="M8B-vy-Ypf" id="eEP-ZX-RhO"/>
                         <outlet property="timerLabel" destination="mFP-6G-0pA" id="hNk-Rr-NtT"/>
                     </connections>

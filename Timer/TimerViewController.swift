@@ -12,20 +12,48 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
-    
+    @IBOutlet weak var pauseButtonLabel: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
     
     @IBAction func pauseButton(sender: UIButton) {
     
         timer.stopTimer()
-        startButtonLabel.setTitle("Start", forState: .Normal)
+        
+        
+        if pauseButtonLabel.titleLabel?.text == "Resume"{
+          print("it is resume")
+            timer.startTimer()
+             pauseButtonLabel.setTitle("Pause", forState: .Normal)
+        } else { pauseButtonLabel.setTitle("Resume", forState: .Normal)}
     
     }
     
     @IBAction func startButton(sender: UIButton) {
         
+        let hours = hourPickerView.selectedRowInComponent(0)
+        let minutes = minutePickerView.selectedRowInComponent(0) + (hours * 60)
+        let totalSecondsSetOnTimer = NSTimeInterval(minutes * 60)
+        
+        timer.setTime(totalSecondsSetOnTimer, totalSeconds: totalSecondsSetOnTimer)
+        
         timer.startTimer()
-        startButtonLabel.setTitle("Cancel", forState: .Normal)
+        
+        
+        if startButtonLabel.titleLabel?.text == "Cancel"{
+            print("it is Cancel")
+            timer.stopTimer()
+            timerLabel.alpha = 0.0
+            hoursLabel.alpha = 1.0
+            minutesLabel.alpha = 1.0
+            minutePickerView.alpha = 1.0
+            hourPickerView.alpha = 1.0
+            startButtonLabel.setTitle("Start", forState: .Normal)
+        } else {
+            startButtonLabel.setTitle("Cancel", forState: .Normal)
+            
+        }
+
+        
     }
     
     @IBOutlet weak var startButtonLabel: UIButton!
