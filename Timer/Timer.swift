@@ -10,6 +10,8 @@ import UIKit
 
 class Timer: NSObject {
     
+    static let TimerAlert = "Timer Alert"
+    
     static let TimerSecondTickNotification = "Timer Second Tick"
     static let TimerCompleteNotification = "Timer Complete Notification"
     
