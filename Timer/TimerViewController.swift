@@ -14,6 +14,8 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func startButton(sender: UIButton) {
+        
+        timer.startTimer()
     }
     
     @IBOutlet weak var hourPickerView: UIPickerView!
@@ -24,6 +26,14 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        let now = NSDate()
+//        var nsDateFormatter = NSDateFormatter()
+//        nsDateFormatter.dateStyle = .MediumStyle
+//        var date = nsDateFormatter.stringFromDate(now)
+//        print(date)
+        
         guard let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else { return }
         
         timer.stopTimer()
@@ -33,11 +43,12 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 
                 UIApplication.sharedApplication().cancelLocalNotification(notification)
                 
-                let now = NSDate()
+               
                 
-                guard let fireDate = notification.fireDate, let userInfo = notification.userInfo as? [String : NSTimeInterval], let totalTime = userInfo[Timer.TotalSeconds] else { return }
+               /* guard let fireDate = notification.fireDate, let userInfo = notification.userInfo as? [String : NSTimeInterval], let totalTime = userInfo[Timer.TotalSeconds] else { return }
                 let timeRemainingOnCountdown = fireDate.timeIntervalSinceDate(now)
-                timer.setTime(timeRemainingOnCountdown, totalSeconds: totalTime)
+                timer.setTime(timeRemainingOnCountdown, totalSeconds: totalTime)*/
+                
                 
                 updateTimerBasedViews()
                 
@@ -78,17 +89,20 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
         
     func updateTimerBasedViews(){
-            
+    
+        print(timer.timerString())
     }
     
     func timerComplete(){
+    
+    let timerCompleteAlert = UIAlertController(title: "Wake Up!", message: "Your timer has gone off!", preferredStyle: .Alert)
+    let okButton = UIAlertAction(title: "Ok!", style: .Default, handler: nil)
+    timerCompleteAlert.addAction(okButton)
+    presentViewController(timerCompleteAlert, animated: true, completion: nil)
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
     
 
     /*

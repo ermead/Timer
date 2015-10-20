@@ -15,8 +15,8 @@ class Timer: NSObject {
     static let TimerSecondTickNotification = "Timer Second Tick"
     static let TimerCompleteNotification = "Timer Complete Notification"
     
-    private(set) var seconds = NSTimeInterval(0)
-    private(set) var totalSeconds = NSTimeInterval(0)
+    private(set) var seconds = NSTimeInterval(10)
+    private(set) var totalSeconds = NSTimeInterval(10)
     private var timer: NSTimer?
     var isOn: Bool{
         get {
@@ -69,7 +69,13 @@ func secondTick(){
 }
 
 func timerString() -> String{
-  return ""
+  
+    let totalSeconds = Int(self.seconds)
+    let minutes = totalSeconds/60
+    let seconds = (totalSeconds - (minutes*60))
+    
+    return "\(minutes): \(seconds)"
+
 }
 
 func armNotification(){
